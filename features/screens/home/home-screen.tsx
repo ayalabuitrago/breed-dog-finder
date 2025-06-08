@@ -2,8 +2,8 @@ import BdfIcon from "@/assets/icons/avatar.svg";
 import GalleryIcon from "@/assets/icons/gallery.svg";
 import HistoryIcon from "@/assets/icons/history.svg";
 import RefreshIcon from "@/assets/icons/refresh.svg";
-import { usePredict } from "@/domain/hooks/predict";
 import { useHistory } from "@/domain/hooks/use-history";
+import { usePredict } from "@/domain/hooks/use-predict";
 import { ActionButton } from "@/features/components/action-button";
 import { PopUpMessage } from "@/features/components/popup-message";
 import { CameraView, useCameraPermissions } from "expo-camera";
@@ -32,7 +32,7 @@ export function HomeScreen(props: Readonly<HomeScreenProps>) {
   const { addHistory } = useHistory();
 
   const camera = useRef<CameraView>(null);
-  
+
   const scale = useSharedValue(1);
   const top = useSharedValue(0);
 
@@ -104,7 +104,7 @@ export function HomeScreen(props: Readonly<HomeScreenProps>) {
   }, [predict, showPreviewPhoto, addHistory]);
 
   const pickImage = useCallback(async () => {
-    setProcessing(false);
+    setProcessing(true);
 
     const pictures = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ["images"],
@@ -170,7 +170,7 @@ export function HomeScreen(props: Readonly<HomeScreenProps>) {
       </View>
       <View style={homeScreenStyle.footer}>
         {!!photoUri && (
-          <ActionButton size="lg" onPress={retry} icon={RefreshIcon} />
+          <ActionButton size="lg" onPress={retry} label={processing ? "" : "Volver a intentar"} icon={RefreshIcon} disabled={processing} />
         )}
         {!photoUri && (
           <>

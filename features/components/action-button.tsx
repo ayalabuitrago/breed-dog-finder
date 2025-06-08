@@ -9,16 +9,17 @@ interface ActionButtonProps {
   label?: string;
   icon?: FC<SvgProps>;
   onPress?: () => void;
+  disabled?: boolean;
 }
 
 export function ActionButton(props: Readonly<ActionButtonProps>) {
-  const { size = "md", label = "", icon: Icon,  onPress } = props;
+  const { size = "md", label = "", icon: Icon, onPress, disabled } = props;
 
   const circleStyles = size === "md" ? styles.circleMd : styles.circleLg;
   const iconStyles = size === "md" ? styles.iconMd : styles.iconLg;
 
   return (
-    <TouchableOpacity style={styles.container} onPress={onPress}>
+    <TouchableOpacity style={styles.container} onPress={onPress} disabled={disabled}>
       <View style={[styles.baseCircle, circleStyles]}>
         {Icon && (
           <Icon width={iconStyles.width} height={iconStyles.height} />
