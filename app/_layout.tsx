@@ -1,4 +1,6 @@
 import { Navbar } from "@/features/components/navbar";
+import { BDF_SCREEN_OPTIONS } from "@/features/constants/bdf-screen-options";
+import { BdfStack } from "@/features/layout/bdf-stack";
 import {
   QueryClient,
   QueryClientProvider,
@@ -53,7 +55,7 @@ export default function RootLayout() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Stack>
+      <BdfStack screenOptions={BDF_SCREEN_OPTIONS}>
         <Stack.Screen
           name="index"
           options={{
@@ -66,7 +68,7 @@ export default function RootLayout() {
             header: historyHeader,
           }}
         />
-      </Stack>
+      </BdfStack>
       <StatusBar style="light" />
     </QueryClientProvider>
   );
