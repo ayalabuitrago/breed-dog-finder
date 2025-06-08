@@ -6,6 +6,7 @@ import { useHistory } from "@/domain/hooks/use-history";
 import { usePredict } from "@/domain/hooks/use-predict";
 import { ActionButton } from "@/features/components/action-button";
 import { PopUpMessage } from "@/features/components/popup-message";
+import { useIsFocused } from "@react-navigation/native";
 import { CameraView, useCameraPermissions } from "expo-camera";
 import * as ImagePicker from "expo-image-picker";
 import { Link } from "expo-router";
@@ -32,6 +33,8 @@ export function HomeScreen(props: Readonly<HomeScreenProps>) {
   const { addHistory } = useHistory();
 
   const camera = useRef<CameraView>(null);
+
+  const isFocused = useIsFocused();
 
   const scale = useSharedValue(1);
   const top = useSharedValue(0);
@@ -145,12 +148,14 @@ export function HomeScreen(props: Readonly<HomeScreenProps>) {
     >
       <View style={homeScreenStyle.content}>
         <Animated.View
+          entering={FadeIn.duration(300)}
+          exiting={FadeOut.duration(300)}
           style={[homeScreenStyle.cameraContainer, animatedStyles]}
         >
           {photoUri && (
             <Image source={{ uri: photoUri }} style={homeScreenStyle.image} />
           )}
-          {cameraPermission?.granted && (
+          {cameraPermission?.granted && isFocused && (
             <CameraView ref={camera} style={homeScreenStyle.camera} />
           )}
         </Animated.View>

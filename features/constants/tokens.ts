@@ -18,6 +18,7 @@ export const Colors = {
         base: '#EFCEAD',
         dark: '#753E05',
         darkest: '#3D2C25',
+        black: '#000',
     }
 };
 
