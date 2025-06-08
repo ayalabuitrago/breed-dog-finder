@@ -25,7 +25,11 @@
         "backgroundColor": "#753E05"
       },
       "edgeToEdgeEnabled": true,
-      "package": "com.jaayalalafise.breeddogfinder"
+      "package": "com.jaayalalafise.breeddogfinder",
+      "permissions": [
+        "android.permission.CAMERA",
+        "android.permission.RECORD_AUDIO"
+      ]
     },
     "plugins": [
       "expo-router",
@@ -59,7 +63,7 @@
     "extra": {
       "router": {},
       "eas": {
-        "projectId": "3da99142-9a99-4427-b258-907ee41ccfee"
+        "projectId": "25788332-fe92-43c1-8617-d1461dece157"
       }
     },
     "owner": "ayalabuitrago"
