@@ -4,6 +4,7 @@ import HistoryIcon from "@/assets/icons/history.svg";
 import RefreshIcon from "@/assets/icons/refresh.svg";
 import { useHistory } from "@/domain/hooks/use-history";
 import { usePredict } from "@/domain/hooks/use-predict";
+import { useStartApi } from "@/domain/hooks/use-start-api";
 import { ActionButton } from "@/features/components/action-button";
 import { PopUpMessage } from "@/features/components/popup-message";
 import { useIsFocused } from "@react-navigation/native";
@@ -31,6 +32,7 @@ export function HomeScreen(props: Readonly<HomeScreenProps>) {
   const [cameraPermission, requestCameraPermission] = useCameraPermissions();
   const { predictResult, predict, resetPredict } = usePredict();
   const { addHistory } = useHistory();
+  useStartApi();
 
   const camera = useRef<CameraView>(null);
 

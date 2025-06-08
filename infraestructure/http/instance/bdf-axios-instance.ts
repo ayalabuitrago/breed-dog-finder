@@ -1,6 +1,6 @@
 import axios, { AxiosError, AxiosInstance } from 'axios';
 
-const axiosInstance: AxiosInstance = axios.create({
+const BdfAxiosInstance: AxiosInstance = axios.create({
     baseURL: process.env.EXPO_PUBLIC_API_URL,
     headers: {
         'Content-Type': 'application/json',
@@ -10,7 +10,7 @@ const axiosInstance: AxiosInstance = axios.create({
 });
 
 // Request Interceptor
-axiosInstance.interceptors.request.use(
+BdfAxiosInstance.interceptors.request.use(
     (config) => {
         return config;
     },
@@ -18,7 +18,7 @@ axiosInstance.interceptors.request.use(
 );
 
 // Response Interceptor
-axiosInstance.interceptors.response.use(
+BdfAxiosInstance.interceptors.response.use(
     (response) => response,
     (error: AxiosError) => {
         if (error.response) {
@@ -43,4 +43,4 @@ axiosInstance.interceptors.response.use(
     }
 )
 
-export default axiosInstance
+export default BdfAxiosInstance
