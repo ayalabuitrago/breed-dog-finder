@@ -132,9 +132,11 @@ export function HomeScreen(props: Readonly<HomeScreenProps>) {
       width: picture.width,
     });
 
-    if (predictRes) {
+    // Save predict to history when predict is not unreliable
+    if (predictRes && !predictRes.unreliable) {
       addHistory({
         ...predictRes,
+        breed_dog: predictRes.breed_dog.replaceAll('_', ' '),
         temp_uri: predictRes.image_uri,
       });
     }
