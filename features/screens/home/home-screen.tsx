@@ -46,7 +46,6 @@ export function HomeScreen(props: Readonly<HomeScreenProps>) {
     top: top.value,
   }));
 
-
   useEffect(() => {
     requestCameraPermission();
   }, [requestCameraPermission]);
@@ -75,6 +74,28 @@ export function HomeScreen(props: Readonly<HomeScreenProps>) {
     [scale, top]
   );
 
+  const sendImage = useCallback(
+    async (picture: { uri: string; height: number; width: number }) => {
+      showPreviewPhoto({
+        uri: picture.uri,
+      });
+
+      const predictRes = await predict({
+        uri: picture.uri,
+        height: picture.height,
+        width: picture.width,
+      });
+
+      if (predictRes && !predictRes.unreliable) {
+        addHistory({
+          ...predictRes,
+          temp_uri: predictRes.image_uri,
+        });
+      }
+    },
+    [addHistory, predict, showPreviewPhoto]
+  );
+
   const takePhoto = useCallback(async () => {
     if (!camera.current) return;
 
@@ -88,25 +109,14 @@ export function HomeScreen(props: Readonly<HomeScreenProps>) {
 
     if (!picture.base64) return;
 
-    showPreviewPhoto({
-      uri: picture.uri,
-    });
-
-    const predictRes = await predict({
+    sendImage({
       uri: picture.uri,
       height: picture.height,
       width: picture.width,
     });
 
-    if (predictRes) {
-      addHistory({
-        ...predictRes,
-        temp_uri: predictRes.image_uri,
-      });
-    }
-
     setProcessing(false);
-  }, [predict, showPreviewPhoto, addHistory]);
+  }, [sendImage]);
 
   const pickImage = useCallback(async () => {
     setProcessing(true);
@@ -122,27 +132,14 @@ export function HomeScreen(props: Readonly<HomeScreenProps>) {
 
     if (!picture?.base64) return;
 
-    showPreviewPhoto({
-      uri: picture.uri,
-    });
-
-    const predictRes = await predict({
+    sendImage({
       uri: picture.uri,
       height: picture.height,
       width: picture.width,
     });
 
-    // Save predict to history when predict is not unreliable
-    if (predictRes && !predictRes.unreliable) {
-      addHistory({
-        ...predictRes,
-        breed_dog: predictRes.breed_dog.replaceAll('_', ' '),
-        temp_uri: predictRes.image_uri,
-      });
-    }
-
     setProcessing(false);
-  }, [addHistory, predict, showPreviewPhoto]);
+  }, [sendImage]);
 
   return (
     <ImageBackground
@@ -179,7 +176,13 @@ export function HomeScreen(props: Readonly<HomeScreenProps>) {
       </View>
       <View style={homeScreenStyle.footer}>
         {!!photoUri && (
-          <ActionButton size="lg" onPress={retry} label={processing ? "" : "Volver a intentar"} icon={RefreshIcon} disabled={processing} />
+          <ActionButton
+            size="lg"
+            onPress={retry}
+            label={processing ? "" : "Volver a intentar"}
+            icon={RefreshIcon}
+            disabled={processing}
+          />
         )}
         {!photoUri && (
           <>

@@ -24,9 +24,6 @@ const queryClient = new QueryClient();
 export default function RootLayout() {
   const [appIsReady, setAppIsReady] = useState(false);
 
-  const indexHeader = useCallback(() => <Navbar more />, []);
-  const historyHeader = useCallback(() => <Navbar more />, [])
-
   useEffect(() => {
     async function prepare() {
       try {
@@ -48,6 +45,9 @@ export default function RootLayout() {
 
     prepare();
   }, []);
+
+  const indexHeader = useCallback(() => <Navbar more />, []);
+  const historyHeader = useCallback(() => <Navbar back />, []);
 
   if (!appIsReady) {
     return null;
