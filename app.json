@@ -55,7 +55,8 @@
         {
           "photosPermission": "Permitir $(PRODUCT_NAME) para acceder a Fotos"
         }
-      ]
+      ],
+      "expo-asset"
     ],
     "experiments": {
       "typedRoutes": true
