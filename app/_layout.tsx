@@ -5,11 +5,12 @@ import {
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query';
+import { Asset } from "expo-asset";
 import * as Font from "expo-font";
-import { Stack } from "expo-router";
+import { Stack, useRouter } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from "expo-status-bar";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "react-native-reanimated";
 
 SplashScreen.preventAutoHideAsync();
@@ -31,10 +32,15 @@ export default function RootLayout() {
         const fonts = Font.loadAsync({
           Outfit: require("../assets/fonts/Outfit.ttf"),
         });
+
+        const images = Asset.loadAsync([
+          require("../assets/images/background.png"),
+        ]);
+
         // Artificially delay for two seconds
         const fake = new Promise((resolve) => setTimeout(resolve, 2000));
 
-        await Promise.all([fonts, fake]);
+        await Promise.all([fake, fonts, images]);
       } catch (e) {
         console.warn(e);
       } finally {
@@ -46,8 +52,11 @@ export default function RootLayout() {
     prepare();
   }, []);
 
-  const indexHeader = useCallback(() => <Navbar more />, []);
-  const historyHeader = useCallback(() => <Navbar back />, []);
+  const router = useRouter();
+
+  const indexHeader = () => <Navbar more moreAction={() => router.push('/about')} />;
+  const historyHeader = () => <Navbar more moreAction={() => router.push('/about')} />
+  const aboutHeader = () => <Navbar back />
 
   if (!appIsReady) {
     return null;
@@ -66,6 +75,12 @@ export default function RootLayout() {
           name="history"
           options={{
             header: historyHeader,
+          }}
+        />
+        <Stack.Screen
+          name="about"
+          options={{
+            header: aboutHeader,
           }}
         />
       </BdfStack>
