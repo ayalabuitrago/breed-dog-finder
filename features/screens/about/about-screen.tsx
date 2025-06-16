@@ -1,7 +1,7 @@
 import GithubIcon from "@/assets/icons/github.svg";
 import GoogleIcon from "@/assets/icons/google.svg";
 import { Label } from "@/features/components/label";
-import { View } from "react-native";
+import { Linking, Pressable, View } from "react-native";
 import { aboutScreenStyles as styles } from "./styles";
 
 export const AboutScreen = () => {
@@ -37,16 +37,44 @@ export const AboutScreen = () => {
         </Label>
         <View style={styles.repos}>
           <View style={styles.repoItem}>
-            <Label size="l" weidth="bold">App móvil</Label>
-            <GithubIcon width={44} height={44} />
+            <Label size="l" weidth="bold">
+              App móvil
+            </Label>
+            <Pressable
+              onPress={() =>
+                Linking.openURL(
+                  "https://github.com/ayalabuitrago/breed-dog-finder"
+                )
+              }
+            >
+              <GithubIcon width={44} height={44} />
+            </Pressable>
           </View>
           <View style={styles.repoItem}>
-            <Label size="l" weidth="bold">API</Label>
-            <GithubIcon width={44} height={44} />
+            <Label size="l" weidth="bold">
+              API
+            </Label>
+            <Pressable
+              onPress={() =>
+                Linking.openURL(
+                  "https://github.com/Eduardo6446/breedDogFinderBackend"
+                )
+              }
+            >
+              <GithubIcon width={44} height={44} />
+            </Pressable>
           </View>
           <View style={styles.repoItem}>
-            <Label size="l" weidth="bold">Modelo</Label>
-            <GoogleIcon width={44} height={44} />
+            <Label size="l" weidth="bold">
+              Modelo
+            </Label>
+            <Pressable onPress={() =>
+                Linking.openURL(
+                  "https://colab.research.google.com/drive/11VThn6pIEdDvtNrTrpB4_9VaERum6oaC?usp=sharing"
+                )
+              }>
+              <GoogleIcon width={44} height={44} />
+            </Pressable>
           </View>
         </View>
       </View>
