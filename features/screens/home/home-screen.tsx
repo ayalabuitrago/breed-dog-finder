@@ -109,7 +109,7 @@ export function HomeScreen(props: Readonly<HomeScreenProps>) {
 
     if (!picture.base64) return;
 
-    sendImage({
+    await sendImage({
       uri: picture.uri,
       height: picture.height,
       width: picture.width,
@@ -132,7 +132,7 @@ export function HomeScreen(props: Readonly<HomeScreenProps>) {
 
     if (!picture?.base64) return;
 
-    sendImage({
+    await sendImage({
       uri: picture.uri,
       height: picture.height,
       width: picture.width,
