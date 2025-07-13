@@ -4,12 +4,12 @@
     "slug": "breed-dog-finder",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./src/assets/images/icon.png",
     "scheme": "breeddogfinder",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "splash": {
-      "image": "./assets/images/icon-splash.png",
+      "image": "./src/assets/images/icon-splash.png",
       "imageWidth": 200,
       "resizeMode": "contain",
       "backgroundColor": "#753E05"
@@ -21,7 +21,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/icon-transparent.png",
+        "foregroundImage": "./src/assets/images/icon-transparent.png",
         "backgroundColor": "#753E05"
       },
       "edgeToEdgeEnabled": true,
@@ -36,7 +36,7 @@
       [
         "expo-splash-screen",
         {
-          "image": "./assets/images/icon-splash.png",
+          "image": "./src/assets/images/icon-splash.png",
           "imageWidth": 200,
           "resizeMode": "contain",
           "backgroundColor": "#753E05"

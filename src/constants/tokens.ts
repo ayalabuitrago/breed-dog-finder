@@ -26,8 +26,8 @@ export const FontFamily = {
   outfit: "Outfit",
 };
 
-type FontWidthType = "bold" | "semibold" | "regular";
-export const FontWidth: Record<FontWidthType, TextStyle["fontWeight"]> = {
+type FontWeightType = "bold" | "semibold" | "regular";
+export const FontWeight: Record<FontWeightType, TextStyle["fontWeight"]> = {
   bold: 700,
   semibold: 600,
   regular: 400,

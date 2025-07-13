@@ -24,7 +24,7 @@ export const MarkdownText = ({
         if (part.startsWith("**") && part.endsWith("**")) {
           const boldText = part.slice(2, -2);
           return (
-            <Label key={`${part}_${index}`} weidth="bold" size={fontSize} color={color}>
+            <Label key={`${part}_${index}`} weight="bold" size={fontSize} color={color}>
               {boldText}
             </Label>
           );

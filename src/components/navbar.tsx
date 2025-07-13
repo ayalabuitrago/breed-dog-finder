@@ -24,7 +24,7 @@ export function Navbar(props: Readonly<NavbarProps>) {
           <Pressable style={styles.button}  onPress={() => router.back()}>{back && <BackIcon />}</Pressable>
           <View style={styles.headerContainer}>
             <HeaderIcon />
-            <Label color="light" size="2xl" weidth="bold" style={styles.text}>
+            <Label color="light" size="2xl" weight="bold" style={styles.text}>
               Breed Dog Finder
             </Label>
           </View>

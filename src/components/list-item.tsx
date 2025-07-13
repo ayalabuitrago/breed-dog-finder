@@ -17,7 +17,7 @@ export function ListItem(props: Readonly<ListItemProps>) {
       <Image source={{ uri: imageUri }} style={styles.image} />
       <View style={styles.content}>
         <View style={styles.titleContainer}>
-          <Label size="xl" color="base" weidth="bold">
+          <Label size="xl" color="base" weight="bold">
             {title}
           </Label>
           {!!subtitle && (

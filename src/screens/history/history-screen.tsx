@@ -23,7 +23,7 @@ export function HistoryScreen() {
     >
       <View style={historyScreenStyles.content}>
         <View style={historyScreenStyles.labelContainer}>
-          <Label size="2xl" weidth="bold">
+          <Label size="2xl" weight="bold">
             Historial
           </Label>
         </View>
