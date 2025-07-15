@@ -1,14 +1,14 @@
-import { Colors, Radius, Spacing } from "@/constants/tokens";
-import { FC } from "react";
-import { StyleSheet, View } from "react-native";
-import Svg, { Path, SvgProps } from "react-native-svg";
-import { MarkdownText } from "./ markdown";
-import Skeleton from "./skeleton";
+import { Colors, Radius, Spacing } from '@/constants/tokens';
+import { FC } from 'react';
+import { StyleSheet, View } from 'react-native';
+import Svg, { Path, SvgProps } from 'react-native-svg';
+import { MarkdownText } from './ markdown';
+import Skeleton from './skeleton';
 
 interface PopUpMessageProps {
   avatar: FC<SvgProps>;
   message: string;
-  loading?: boolean,
+  loading?: boolean;
 }
 
 export function PopUpMessage(props: Readonly<PopUpMessageProps>) {
@@ -23,17 +23,15 @@ export function PopUpMessage(props: Readonly<PopUpMessageProps>) {
             <Path d="M0 0 C10 20, 10 20, 20 0" fill="#753E05" />
           </Svg>
         </View>
-        {
-          loading ?
+        {loading ? (
           <View style={styles.skeleton}>
             <Skeleton height={14} width={'100%'} radius={12} />
             <Skeleton height={14} width={'70%'} radius={12} />
             <Skeleton height={14} width={'80%'} radius={12} />
           </View>
-          :
+        ) : (
           <MarkdownText color="light">{message}</MarkdownText>
-
-        }
+        )}
       </View>
     </View>
   );
@@ -41,9 +39,9 @@ export function PopUpMessage(props: Readonly<PopUpMessageProps>) {
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: "row",
+    flexDirection: 'row',
     gap: Spacing.l,
-    alignItems: "flex-start",
+    alignItems: 'flex-start',
   },
   avatar: {
     width: 30,
@@ -52,7 +50,7 @@ const styles = StyleSheet.create({
   messageContainer: {
     flex: 1,
     backgroundColor: Colors.background.dark,
-    position: "relative",
+    position: 'relative',
     paddingHorizontal: Spacing.m,
     paddingVertical: Spacing.m,
     borderTopEndRadius: Radius.l,
@@ -65,12 +63,12 @@ const styles = StyleSheet.create({
     borderEndStartRadius: Radius.l,
   },
   messageArrow: {
-    position: "absolute",
+    position: 'absolute',
     top: 0,
     left: -5,
   },
   skeleton: {
     flexDirection: 'column',
     gap: Spacing.s,
-  }
+  },
 });

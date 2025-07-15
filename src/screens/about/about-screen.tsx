@@ -1,8 +1,8 @@
-import GithubIcon from "@/assets/icons/github.svg";
-import GoogleIcon from "@/assets/icons/google.svg";
-import { Label } from "@/components/label";
-import { Linking, Pressable, View } from "react-native";
-import { aboutScreenStyles as styles } from "./styles";
+import GithubIcon from '@/assets/icons/github.svg';
+import GoogleIcon from '@/assets/icons/google.svg';
+import { Label } from '@/components/label';
+import { Linking, Pressable, View } from 'react-native';
+import { aboutScreenStyles as styles } from './styles';
 
 export const AboutScreen = () => {
   return (
@@ -14,22 +14,21 @@ export const AboutScreen = () => {
       </View>
       <View style={styles.descriptionContainer}>
         <Label size="l" weight="semibold">
-          Esta aplicación fue desarrollada como parte del trabajo final del
-          curso de Inteligencia Artificial de la Universidad Nacional de
-          Ingeniería. Su propósito es poner en práctica los conocimientos
-          adquiridos en clase mediante una solución tecnológica funcional.
+          Esta aplicación fue desarrollada como parte del trabajo final del curso de Inteligencia
+          Artificial de la Universidad Nacional de Ingeniería. Su propósito es poner en práctica los
+          conocimientos adquiridos en clase mediante una solución tecnológica funcional.
         </Label>
-        <Label>{""}</Label>
+        <Label>{''}</Label>
         <Label size="l" weight="bold">
           Desarrolladores:
         </Label>
         <Label size="l" weight="semibold">
-          {"Jefry Ayala             2021-120U"}
+          {'Jefry Ayala             2021-120U'}
         </Label>
         <Label size="l" weight="semibold">
-          {"Eduardo Orozco    2021-0120U"}
+          {'Eduardo Orozco    2021-0120U'}
         </Label>
-        <Label>{""}</Label>
+        <Label>{''}</Label>
       </View>
       <View>
         <Label size="l" weight="bold">
@@ -41,11 +40,7 @@ export const AboutScreen = () => {
               App móvil
             </Label>
             <Pressable
-              onPress={() =>
-                Linking.openURL(
-                  "https://github.com/ayalabuitrago/breed-dog-finder"
-                )
-              }
+              onPress={() => Linking.openURL('https://github.com/ayalabuitrago/breed-dog-finder')}
             >
               <GithubIcon width={44} height={44} />
             </Pressable>
@@ -56,9 +51,7 @@ export const AboutScreen = () => {
             </Label>
             <Pressable
               onPress={() =>
-                Linking.openURL(
-                  "https://github.com/Eduardo6446/breedDogFinderBackend"
-                )
+                Linking.openURL('https://github.com/Eduardo6446/breedDogFinderBackend')
               }
             >
               <GithubIcon width={44} height={44} />
@@ -68,11 +61,13 @@ export const AboutScreen = () => {
             <Label size="l" weight="bold">
               Modelo
             </Label>
-            <Pressable onPress={() =>
+            <Pressable
+              onPress={() =>
                 Linking.openURL(
-                  "https://colab.research.google.com/drive/11VThn6pIEdDvtNrTrpB4_9VaERum6oaC?usp=sharing"
+                  'https://colab.research.google.com/drive/11VThn6pIEdDvtNrTrpB4_9VaERum6oaC?usp=sharing',
                 )
-              }>
+              }
+            >
               <GoogleIcon width={44} height={44} />
             </Pressable>
           </View>

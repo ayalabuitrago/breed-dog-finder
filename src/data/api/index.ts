@@ -1,1 +1,1 @@
-export * from "./post-predict"
+export * from './post-predict';

@@ -1,11 +1,11 @@
-import BackIcon from "@/assets/icons/arrow-left.svg";
-import HeaderIcon from "@/assets/icons/icon.svg";
-import MoreIcon from "@/assets/icons/more.svg";
-import { Colors, Spacing } from "@/constants/tokens";
-import { useRouter } from "expo-router";
-import { Pressable, StyleSheet, View } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { Label } from "./label";
+import BackIcon from '@/assets/icons/arrow-left.svg';
+import HeaderIcon from '@/assets/icons/icon.svg';
+import MoreIcon from '@/assets/icons/more.svg';
+import { Colors, Spacing } from '@/constants/tokens';
+import { useRouter } from 'expo-router';
+import { Pressable, StyleSheet, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { Label } from './label';
 
 interface NavbarProps {
   back?: boolean;
@@ -19,19 +19,18 @@ export function Navbar(props: Readonly<NavbarProps>) {
 
   return (
     <View style={styles.mainContainer}>
-      <SafeAreaView edges={["top"]}>
+      <SafeAreaView edges={['top']}>
         <View style={styles.container}>
-          <Pressable style={styles.button}  onPress={() => router.back()}>{back && <BackIcon />}</Pressable>
+          <Pressable style={styles.button} onPress={() => router.back()}>
+            {back && <BackIcon />}
+          </Pressable>
           <View style={styles.headerContainer}>
             <HeaderIcon />
             <Label color="light" size="2xl" weight="bold" style={styles.text}>
               Breed Dog Finder
             </Label>
           </View>
-          <Pressable
-            style={styles.button}
-            onPress={more ? moreAction : undefined}
-          >
+          <Pressable style={styles.button} onPress={more ? moreAction : undefined}>
             {more && <MoreIcon />}
           </Pressable>
         </View>
@@ -47,18 +46,18 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: Colors.background.dark,
     paddingBottom: Spacing.m,
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     paddingHorizontal: Spacing.l,
   },
   headerContainer: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
     gap: Spacing.l,
   },
   text: {
-    textAlign: "center",
+    textAlign: 'center',
   },
   button: {
     width: 30,

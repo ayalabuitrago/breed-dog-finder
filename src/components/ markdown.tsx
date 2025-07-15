@@ -1,6 +1,6 @@
-import { Colors, FontSize } from "@/constants/tokens";
-import React, { useMemo } from "react";
-import { Label } from "./label";
+import { Colors, FontSize } from '@/constants/tokens';
+import React, { useMemo } from 'react';
+import { Label } from './label';
 
 type FontSizeKey = keyof typeof FontSize;
 
@@ -12,7 +12,7 @@ interface MarkdownTextProps {
 
 export const MarkdownText = ({
   children,
-  fontSize = "m",
+  fontSize = 'm',
   color = 'base',
 }: Readonly<MarkdownTextProps>) => {
   // Divide el texto en partes entre **bold**
@@ -21,7 +21,7 @@ export const MarkdownText = ({
   return (
     <Label>
       {parts.map((part, index) => {
-        if (part.startsWith("**") && part.endsWith("**")) {
+        if (part.startsWith('**') && part.endsWith('**')) {
           const boldText = part.slice(2, -2);
           return (
             <Label key={`${part}_${index}`} weight="bold" size={fontSize} color={color}>
@@ -29,7 +29,11 @@ export const MarkdownText = ({
             </Label>
           );
         } else {
-          return <Label key={`${part}_${index}`} size={fontSize} color={color}>{part}</Label>;
+          return (
+            <Label key={`${part}_${index}`} size={fontSize} color={color}>
+              {part}
+            </Label>
+          );
         }
       })}
     </Label>

@@ -1,25 +1,25 @@
-import BdfIcon from "@/assets/icons/avatar.svg";
-import GalleryIcon from "@/assets/icons/gallery.svg";
-import HistoryIcon from "@/assets/icons/history.svg";
-import RefreshIcon from "@/assets/icons/refresh.svg";
-import { useHistory } from "@/hooks/use-history";
-import { usePredict } from "@/hooks/use-predict";
-import { ActionButton } from "@/components/action-button";
-import { PopUpMessage } from "@/components/popup-message";
-import { useIsFocused } from "@react-navigation/native";
-import { CameraView, useCameraPermissions } from "expo-camera";
-import * as ImagePicker from "expo-image-picker";
-import { Link } from "expo-router";
-import { useCallback, useEffect, useRef, useState } from "react";
-import { Image, ImageBackground, View } from "react-native";
+import BdfIcon from '@/assets/icons/avatar.svg';
+import GalleryIcon from '@/assets/icons/gallery.svg';
+import HistoryIcon from '@/assets/icons/history.svg';
+import RefreshIcon from '@/assets/icons/refresh.svg';
+import { useHistory } from '@/hooks/use-history';
+import { usePredict } from '@/hooks/use-predict';
+import { ActionButton } from '@/components/action-button';
+import { PopUpMessage } from '@/components/popup-message';
+import { useIsFocused } from '@react-navigation/native';
+import { CameraView, useCameraPermissions } from 'expo-camera';
+import * as ImagePicker from 'expo-image-picker';
+import { Link } from 'expo-router';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { Image, ImageBackground, View } from 'react-native';
 import Animated, {
   FadeIn,
   FadeOut,
   useAnimatedStyle,
   useSharedValue,
   withTiming,
-} from "react-native-reanimated";
-import { homeScreenStyle } from "./styles";
+} from 'react-native-reanimated';
+import { homeScreenStyle } from './styles';
 
 interface HomeScreenProps {
   onLayout: () => void;
@@ -69,7 +69,7 @@ export function HomeScreen(props: Readonly<HomeScreenProps>) {
         duration: 300,
       });
     },
-    [scale, top]
+    [scale, top],
   );
 
   const sendImage = useCallback(
@@ -91,7 +91,7 @@ export function HomeScreen(props: Readonly<HomeScreenProps>) {
         });
       }
     },
-    [addHistory, predict, showPreviewPhoto]
+    [addHistory, predict, showPreviewPhoto],
   );
 
   const takePhoto = useCallback(async () => {
@@ -120,7 +120,7 @@ export function HomeScreen(props: Readonly<HomeScreenProps>) {
     setProcessing(true);
 
     const pictures = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ["images"],
+      mediaTypes: ['images'],
       allowsEditing: true,
       quality: 1,
       base64: true,
@@ -142,7 +142,7 @@ export function HomeScreen(props: Readonly<HomeScreenProps>) {
   return (
     <ImageBackground
       style={homeScreenStyle.container}
-      source={require("@/assets/images/background.png")}
+      source={require('@/assets/images/background.png')}
       onLayout={props.onLayout}
     >
       <View style={homeScreenStyle.content}>
@@ -151,9 +151,7 @@ export function HomeScreen(props: Readonly<HomeScreenProps>) {
           exiting={FadeOut.duration(300)}
           style={[homeScreenStyle.cameraContainer, animatedStyles]}
         >
-          {photoUri && (
-            <Image source={{ uri: photoUri }} style={homeScreenStyle.image} />
-          )}
+          {photoUri && <Image source={{ uri: photoUri }} style={homeScreenStyle.image} />}
           {cameraPermission?.granted && isFocused && (
             <CameraView ref={camera} style={homeScreenStyle.camera} />
           )}
@@ -164,11 +162,7 @@ export function HomeScreen(props: Readonly<HomeScreenProps>) {
             exiting={FadeOut.duration(300)}
             style={homeScreenStyle.messageContainer}
           >
-            <PopUpMessage
-              avatar={BdfIcon}
-              message={predictResult}
-              loading={processing}
-            />
+            <PopUpMessage avatar={BdfIcon} message={predictResult} loading={processing} />
           </Animated.View>
         )}
       </View>
@@ -177,22 +171,18 @@ export function HomeScreen(props: Readonly<HomeScreenProps>) {
           <ActionButton
             size="lg"
             onPress={retry}
-            label={processing ? "" : "Volver a intentar"}
+            label={processing ? '' : 'Volver a intentar'}
             icon={RefreshIcon}
             disabled={processing}
           />
         )}
         {!photoUri && (
           <>
-            <Link href={"/history"} asChild>
+            <Link href={'/history'} asChild>
               <ActionButton label="Historial" icon={HistoryIcon} />
             </Link>
             <ActionButton size="lg" onPress={takePhoto} />
-            <ActionButton
-              label="Importar"
-              icon={GalleryIcon}
-              onPress={pickImage}
-            />
+            <ActionButton label="Importar" icon={GalleryIcon} onPress={pickImage} />
           </>
         )}
       </View>

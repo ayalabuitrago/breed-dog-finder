@@ -26,10 +26,7 @@
       },
       "edgeToEdgeEnabled": true,
       "package": "com.jaayalalafise.breeddogfinder",
-      "permissions": [
-        "android.permission.CAMERA",
-        "android.permission.RECORD_AUDIO"
-      ]
+      "permissions": ["android.permission.CAMERA", "android.permission.RECORD_AUDIO"]
     },
     "plugins": [
       "expo-router",

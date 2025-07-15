@@ -1,6 +1,6 @@
-import { Colors, Radius, Spacing } from "@/constants/tokens";
-import { Image, StyleSheet, View } from "react-native";
-import { Label } from "./label";
+import { Colors, Radius, Spacing } from '@/constants/tokens';
+import { Image, StyleSheet, View } from 'react-native';
+import { Label } from './label';
 
 interface ListItemProps {
   title: string;
@@ -44,30 +44,30 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.background.light,
     padding: Spacing.s,
     gap: Spacing.s,
-    flexDirection: "row",
-    alignItems: "center",
-    width: "100%",
+    flexDirection: 'row',
+    alignItems: 'center',
+    width: '100%',
   },
   image: {
     height: 80,
     width: 80,
-    resizeMode: "cover",
+    resizeMode: 'cover',
     backgroundColor: Colors.background.dark,
     borderRadius: Radius.l,
   },
   content: {
-    flexDirection: "column",
-    justifyContent: "space-between",
+    flexDirection: 'column',
+    justifyContent: 'space-between',
     flex: 1,
   },
   titleContainer: {
     flex: 2,
-    flexDirection: "column",
-    justifyContent: "center",
+    flexDirection: 'column',
+    justifyContent: 'center',
   },
   metaContainer: {
     flex: 1,
     flexDirection: 'column',
-    justifyContent: "center",
+    justifyContent: 'center',
   },
 });

@@ -44,7 +44,7 @@ export const useScrollContentSize = (): Pick<
 
   const bounces: boolean = useMemo(
     () => contentHeight >= containerHeight,
-    [containerHeight, contentHeight]
+    [containerHeight, contentHeight],
   );
 
   return {

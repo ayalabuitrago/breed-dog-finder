@@ -1,16 +1,13 @@
-import { LinearGradient } from "expo-linear-gradient";
-import React, { useEffect } from "react";
-import {
-  DimensionValue,
-  View,
-} from "react-native";
+import { LinearGradient } from 'expo-linear-gradient';
+import React, { useEffect } from 'react';
+import { DimensionValue, View } from 'react-native';
 import Animated, {
   Easing,
   useAnimatedStyle,
   useSharedValue,
   withRepeat,
   withTiming,
-} from "react-native-reanimated";
+} from 'react-native-reanimated';
 
 interface SkeletonProps {
   height: DimensionValue;
@@ -22,12 +19,7 @@ interface SkeletonProps {
 const AnimatedLinearGradient = Animated.createAnimatedComponent(LinearGradient);
 
 export default function Skeleton(props: Readonly<SkeletonProps>) {
-  const {
-    height,
-    width,
-    radius,
-    backgroundColor = '#FFFFFF' + '20',
-  } = props;
+  const { height, width, radius, backgroundColor = '#FFFFFF' + '20' } = props;
 
   const translateX = useSharedValue(-400);
 
@@ -38,7 +30,7 @@ export default function Skeleton(props: Readonly<SkeletonProps>) {
         easing: Easing.linear,
       }),
       -1,
-      false
+      false,
     );
   }, [translateX]);
 
@@ -53,13 +45,13 @@ export default function Skeleton(props: Readonly<SkeletonProps>) {
         height,
         backgroundColor,
         borderRadius: radius,
-        overflow: "hidden",
+        overflow: 'hidden',
       }}
     >
       <AnimatedLinearGradient
         colors={
           backgroundColor === '#FFFFFF' + '20'
-            ? ["transparent", '#FFFFFF' + '15', "transparent"]
+            ? ['transparent', '#FFFFFF' + '15', 'transparent']
             : ['#FFFFFF' + '10', '#13151C' + '10', '#FFFFFF' + '10']
         }
         start={{ x: 0, y: 0 }}
@@ -67,7 +59,7 @@ export default function Skeleton(props: Readonly<SkeletonProps>) {
         style={[
           {
             borderRadius: radius,
-            position: "absolute",
+            position: 'absolute',
             top: 0,
             left: 0,
             right: 0,

@@ -1,5 +1,5 @@
-import { AboutScreen } from "@/screens/about/about-screen";
+import { AboutScreen } from '@/screens/about/about-screen';
 
-export default function About () {
-    return <AboutScreen />
+export default function About() {
+  return <AboutScreen />;
 }

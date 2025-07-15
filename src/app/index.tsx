@@ -1,6 +1,6 @@
-import { HomeScreen } from "@/screens//home/home-screen";
-import * as SplashScreen from "expo-splash-screen";
-import { useCallback } from "react";
+import { HomeScreen } from '@/screens//home/home-screen';
+import * as SplashScreen from 'expo-splash-screen';
+import { useCallback } from 'react';
 
 export default function Home() {
   const onLayoutRootView = useCallback(() => {

@@ -1,33 +1,33 @@
-import { type TextStyle } from "react-native";
+import { type TextStyle } from 'react-native';
 
 export const Colors = {
   primary: {
-    dark: "#3D2C25",
-    base: "#753E05",
+    dark: '#3D2C25',
+    base: '#753E05',
   },
   icon: {
-    base: "#723F06",
-    light: "#FFEEDF",
+    base: '#723F06',
+    light: '#FFEEDF',
   },
   text: {
-    light: "#FFEEDF",
-    base: "#3D2C25",
+    light: '#FFEEDF',
+    base: '#3D2C25',
   },
   background: {
-    light: "#FFEEDF",
-    base: "#EFCEAD",
-    dark: "#753E05",
-    darkest: "#3D2C25",
-    black: "#000",
+    light: '#FFEEDF',
+    base: '#EFCEAD',
+    dark: '#753E05',
+    darkest: '#3D2C25',
+    black: '#000',
   },
 };
 
 export const FontFamily = {
-  outfit: "Outfit",
+  outfit: 'Outfit',
 };
 
-type FontWeightType = "bold" | "semibold" | "regular";
-export const FontWeight: Record<FontWeightType, TextStyle["fontWeight"]> = {
+type FontWeightType = 'bold' | 'semibold' | 'regular';
+export const FontWeight: Record<FontWeightType, TextStyle['fontWeight']> = {
   bold: 700,
   semibold: 600,
   regular: 400,
@@ -38,7 +38,7 @@ export const FontSize = {
   m: 14,
   l: 16,
   xl: 20,
-  "2xl": 24,
+  '2xl': 24,
 };
 
 export const Spacing = {
@@ -47,14 +47,14 @@ export const Spacing = {
   m: 12,
   l: 16,
   xl: 20,
-  "2xl": 24,
-  "3xl": 36,
-  "4xl": 48,
-  "5xl": 56,
+  '2xl': 24,
+  '3xl': 36,
+  '4xl': 48,
+  '5xl': 56,
 };
 
 export const Radius = {
   l: 20,
   xl: 24,
-  "2xl": 28,
+  '2xl': 28,
 };

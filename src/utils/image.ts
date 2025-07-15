@@ -1,16 +1,16 @@
-import { ImageManipulator } from "expo-image-manipulator";
+import { ImageManipulator } from 'expo-image-manipulator';
 
 export const resizeImage = async (picture: {
-    uri: string;
-    width: number;
-    height: number;
-    factor: number;
+  uri: string;
+  width: number;
+  height: number;
+  factor: number;
 }) => {
-    const width = picture.width / 4;
+  const width = picture.width / 4;
 
-    const pictureResized = await ImageManipulator.manipulate(picture.uri)
-        .resize({ width })
-        .renderAsync();
+  const pictureResized = await ImageManipulator.manipulate(picture.uri)
+    .resize({ width })
+    .renderAsync();
 
-    return await pictureResized.saveAsync({ base64: true, compress: 0.8 });
+  return await pictureResized.saveAsync({ base64: true, compress: 0.8 });
 };

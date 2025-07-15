@@ -1,17 +1,14 @@
-import { Navbar } from "@/components/navbar";
-import { BDF_SCREEN_OPTIONS } from "@/constants/bdf-screen-options";
-import { BdfStack } from "@/layout/bdf-stack";
-import {
-  QueryClient,
-  QueryClientProvider,
-} from '@tanstack/react-query';
-import { Asset } from "expo-asset";
-import * as Font from "expo-font";
-import { Stack, useRouter } from "expo-router";
-import * as SplashScreen from "expo-splash-screen";
-import { StatusBar } from "expo-status-bar";
-import { useEffect, useState } from "react";
-import "react-native-reanimated";
+import { Navbar } from '@/components/navbar';
+import { BDF_SCREEN_OPTIONS } from '@/constants/bdf-screen-options';
+import { BdfStack } from '@/layout/bdf-stack';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { Asset } from 'expo-asset';
+import * as Font from 'expo-font';
+import { Stack, useRouter } from 'expo-router';
+import * as SplashScreen from 'expo-splash-screen';
+import { StatusBar } from 'expo-status-bar';
+import { useEffect, useState } from 'react';
+import 'react-native-reanimated';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -30,15 +27,13 @@ export default function RootLayout() {
       try {
         // Pre-load fonts
         const fonts = Font.loadAsync({
-          Outfit: require("../assets/fonts/Outfit.ttf"),
+          Outfit: require('../assets/fonts/Outfit.ttf'),
         });
 
-        const images = Asset.loadAsync([
-          require("../assets/images/background.png"),
-        ]);
+        const images = Asset.loadAsync([require('../assets/images/background.png')]);
 
         // Artificially delay for two seconds
-        const fake = new Promise((resolve) => setTimeout(resolve, 2000));
+        const fake = new Promise(resolve => setTimeout(resolve, 2000));
 
         await Promise.all([fake, fonts, images]);
       } catch (e) {
@@ -55,8 +50,8 @@ export default function RootLayout() {
   const router = useRouter();
 
   const indexHeader = () => <Navbar more moreAction={() => router.push('/about')} />;
-  const historyHeader = () => <Navbar more moreAction={() => router.push('/about')} />
-  const aboutHeader = () => <Navbar back />
+  const historyHeader = () => <Navbar more moreAction={() => router.push('/about')} />;
+  const aboutHeader = () => <Navbar back />;
 
   if (!appIsReady) {
     return null;

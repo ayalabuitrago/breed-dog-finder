@@ -1,9 +1,9 @@
-import { StackNavigationOptions } from "@react-navigation/stack";
-import { Animated, Easing } from "react-native";
+import { StackNavigationOptions } from '@react-navigation/stack';
+import { Animated, Easing } from 'react-native';
 
 const SPRING_ANIMATION: Omit<
   Animated.SpringAnimationConfig,
-  "toValue" | keyof Animated.AnimationConfig
+  'toValue' | keyof Animated.AnimationConfig
 > = {
   stiffness: 320,
   damping: 40,
@@ -23,7 +23,7 @@ export const BDF_SCREEN_OPTIONS: StackNavigationOptions = {
     const translateX = current.progress.interpolate({
       inputRange: [0, 1],
       outputRange: [INITIAL_TRANSLATE_X_MULTIPLIER * layouts.screen.width, 0],
-      extrapolate: "clamp",
+      extrapolate: 'clamp',
     });
 
     // Calculate translateX for the next screen (if exists)
@@ -31,21 +31,21 @@ export const BDF_SCREEN_OPTIONS: StackNavigationOptions = {
       ? next.progress.interpolate({
           inputRange: [0, 1],
           outputRange: [0, NEXT_TRANSLATE_X_MULTIPLIER * layouts.screen.width],
-          extrapolate: "clamp",
+          extrapolate: 'clamp',
         })
       : 0;
     // Calculate overlay opacity
     const overlayOpacity = current.progress.interpolate({
       inputRange: [0, 1],
       outputRange: [0, OVERLAY_OPACITY_MAX],
-      extrapolate: "clamp",
+      extrapolate: 'clamp',
     });
 
     // Calculate opacity for the next screen
     const nextScreenOpacity = current.progress.interpolate({
       inputRange: [0, 1],
       outputRange: [NEXT_SCREEN_OPACITY_MIN, 1],
-      extrapolate: "clamp",
+      extrapolate: 'clamp',
     });
 
     // Combine all animations
@@ -53,8 +53,8 @@ export const BDF_SCREEN_OPTIONS: StackNavigationOptions = {
       { translateX },
       { translateX: nextTranslateX },
       { perspective: 1000 },
-    //   { rotateY: rotate },
-    //   { scale },
+      //   { rotateY: rotate },
+      //   { scale },
     ];
 
     return {
@@ -68,11 +68,11 @@ export const BDF_SCREEN_OPTIONS: StackNavigationOptions = {
   },
   transitionSpec: {
     open: {
-      animation: "spring",
+      animation: 'spring',
       config: SPRING_ANIMATION,
     },
     close: {
-      animation: "spring",
+      animation: 'spring',
       config: SPRING_ANIMATION,
     },
   },

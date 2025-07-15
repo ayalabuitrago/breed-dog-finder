@@ -1,8 +1,8 @@
 import { ParamListBase, StackNavigationState } from '@react-navigation/native';
 import {
-    createStackNavigator,
-    StackNavigationEventMap,
-    StackNavigationOptions,
+  createStackNavigator,
+  StackNavigationEventMap,
+  StackNavigationOptions,
 } from '@react-navigation/stack';
 import { withLayoutContext } from 'expo-router';
 
