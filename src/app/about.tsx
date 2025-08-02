@@ -1,4 +1,4 @@
-import { AboutScreen } from '@/screens/about/about-screen';
+import { AboutScreen } from '@/screens/about';
 
 export default function About() {
   return <AboutScreen />;

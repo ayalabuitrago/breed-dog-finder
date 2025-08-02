@@ -1,4 +1,4 @@
-import { HomeScreen } from '@/screens//home/home-screen';
+import { HomeScreen } from '@/screens/home';
 import * as SplashScreen from 'expo-splash-screen';
 import { useCallback } from 'react';
 
