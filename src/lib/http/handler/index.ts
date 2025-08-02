@@ -1,6 +1,15 @@
-import { AxiosResponse } from 'axios';
+import { AxiosInstance, AxiosResponse, Method } from 'axios';
 
-import { HttpHandlerOptions } from '@/types';
+export interface HttpHandlerOptions<TRequest> {
+  instance: AxiosInstance;
+  endpoint: `/${string}`;
+  method?: Method;
+  body?: TRequest;
+  params?: Record<string, any>;
+  token?: string;
+  headers?: Record<string, string>;
+  abort?: AbortController;
+}
 
 export const httpHandler = async <TRequest, TResponse>({
   instance,
