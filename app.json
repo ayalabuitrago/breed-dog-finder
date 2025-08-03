@@ -16,8 +16,8 @@
     },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.jaayalalafise.breeddogfinder",
-      "appleTeamId": "ZJAD2N25T4"
+      "bundleIdentifier": "com.ayalabuitrago.breeddogfinder",
+      "appleTeamId": ""
     },
     "android": {
       "adaptiveIcon": {
@@ -25,7 +25,7 @@
         "backgroundColor": "#753E05"
       },
       "edgeToEdgeEnabled": true,
-      "package": "com.jaayalalafise.breeddogfinder",
+      "package": "com.ayalabuitrago.breeddogfinder",
       "permissions": ["android.permission.CAMERA", "android.permission.RECORD_AUDIO"]
     },
     "plugins": [
